@@ -18,8 +18,7 @@ extensions:
 
 ## Configuration
 
-We're using `ClientBuilder` class to build and setup `Client`. ClientBuilder internally use `Monolog`. 
-You'll probably need to install monolog as well.
+We're using `ClientBuilder` class to build and setup the `Client`. ClientBuilder internally uses `Monolog`, which you'll probably need to install as well.
 
 ```
 composer require monolog/monolog
