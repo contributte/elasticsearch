@@ -7,10 +7,10 @@ Tiny integration of **[elasticsearch-php](https://github.com/elastic/elasticsear
 [![Build Status](https://img.shields.io/travis/contributte/elasticsearch.svg?style=flat-square)](https://travis-ci.org/contributte/elasticsearch)
 [![Code coverage](https://img.shields.io/coveralls/contributte/elasticsearch.svg?style=flat-square)](https://coveralls.io/r/contributte/elasticsearch)
 [![Licence](https://img.shields.io/packagist/l/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-
 [![Downloads this Month](https://img.shields.io/packagist/dm/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
 [![Downloads total](https://img.shields.io/packagist/dt/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
 [![Latest stable](https://img.shields.io/packagist/v/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 
 ## Discussion / Help
 
@@ -46,7 +46,7 @@ composer require contributte/elasticsearch
         <a href="https://github.com/vojtamares">Vojta Mareš</a>
       </td>
     </tr>
-  <tbody>
+  </tbody>
 </table>
 
 -----

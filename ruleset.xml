@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <ruleset name="Contributte">
-    <!-- Extending rulesets -->
+	<!-- Contributte Coding Standard -->
     <rule ref="vendor/ninjify/coding-standard/contributte.xml"/>
 
-    <!-- My rules -->
+	<!-- Specific rules -->
     <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
         <properties>
             <property name="rootNamespaces" type="array" value="
