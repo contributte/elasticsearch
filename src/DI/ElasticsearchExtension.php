@@ -9,10 +9,10 @@ use Nette\DI\CompilerExtension;
 class ElasticsearchExtension extends CompilerExtension
 {
 
-	/** @var mixed */
-	public $defaults = [
-			'hosts' => ['localhost'],
-		];
+	/** @var mixed[] */
+	private $defaults = [
+		'hosts' => ['localhost'],
+	];
 
 	public function beforeCompile(): void
 	{
@@ -21,12 +21,12 @@ class ElasticsearchExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('clientBuilder'))
-			->setClass(ClientBuilder::class)
+			->setType(ClientBuilder::class)
 			->setFactory([ClientBuilder::class, 'create'])
 			->setArguments($config['hosts']);
 
 		$builder->addDefinition($this->prefix('client'))
-			->setClass(Client::class)
+			->setType(Client::class)
 			->setFactory(['@' . $this->prefix('clientBuilder'), 'build']);
 	}
 
