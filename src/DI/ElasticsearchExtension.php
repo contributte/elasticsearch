@@ -16,7 +16,11 @@ class ElasticsearchExtension extends CompilerExtension
 
 	public function beforeCompile(): void
 	{
-		$config = $this->getConfig($this->defaults);
+		if (!isset($this->config['hosts'])) {
+			$this->defaults['hosts'] = [];
+		}
+
+		$config = $this->getConfig();
 
 		$builder = $this->getContainerBuilder();
 
