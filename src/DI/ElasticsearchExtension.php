@@ -5,29 +5,40 @@ namespace Contributte\Elasticsearch\DI;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
 use Nette\DI\CompilerExtension;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
+use stdClass;
 
+/**
+ * @property-read stdClass $config
+ */
 class ElasticsearchExtension extends CompilerExtension
 {
 
-	/** @var mixed[] */
-	private $defaults = [
-		'hosts' => ['localhost'],
-	];
+	public function getConfigSchema(): Schema
+	{
+		return Expect::structure([
+			'hosts' => Expect::anyOf(Expect::arrayOf('string'), Expect::structure([
+				'host' => Expect::string()->required(),
+				'port' => Expect::int(),
+				'schema' => Expect::string(),
+				'path' => Expect::string(),
+				'user' => Expect::string(),
+				'pass' => Expect::string(),
+			])),
+			'retries' => Expect::int(),
+		]);
+	}
 
 	public function beforeCompile(): void
 	{
-		if (!isset($this->config['hosts'])) {
-			$this->defaults['hosts'] = [];
-		}
-
-		$config = $this->getConfig();
-
+		$config = $this->config;
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('clientBuilder'))
 			->setType(ClientBuilder::class)
 			->setFactory([ClientBuilder::class, 'create'])
-			->setArguments($config['hosts']);
+			->setArguments($config->hosts);
 
 		$builder->addDefinition($this->prefix('client'))
 			->setType(Client::class)
