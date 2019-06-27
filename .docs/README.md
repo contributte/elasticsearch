@@ -1,30 +1,34 @@
-# Elasticsearch
+# Contributte Elasticsearch
 
-Find out more about [elasticsearch-php](https://github.com/elastic/elasticsearch-php). And also about [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html)
+Find out more about [elasticsearch-php](https://github.com/elastic/elasticsearch-php) and also about [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html)
 
 ## Content
 
-- [Usage - how to register](#usage)
-- [Configuration - how to configure](#configuration)
+- [Setup](#setup)
+- [Configuration](#configuration)
 
-## Usage
+## Setup
 
-Register `elasticsearch` extension in your config file.
+Install package
+
+```bash
+composer require contributte/elasticsearch
+```
+
+Register extension.
 
 ```yaml
 extensions:
     elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
 ```
 
-## Configuration
+We're using `ClientBuilder` class to build and setup the `Client`. ClientBuilder internally uses `Monolog`, which you'll need to install as well.
 
-We're using `ClientBuilder` class to build and setup the `Client`. ClientBuilder internally uses `Monolog`, which you'll probably need to install as well.
-
-```
+```bash
 composer require monolog/monolog
 ```
 
-### Minimal configuration
+## Configuration
 
 ```yaml
 elasticsearch:
