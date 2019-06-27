@@ -40,7 +40,7 @@ test(function (): void {
 					    	host: 192.168.1.100
 					    	port: 9999
 		', 'neon'));
-	}, '1a');
+	}, '1b');
 
 	/** @var Container $container */
 	$container = new $class();
