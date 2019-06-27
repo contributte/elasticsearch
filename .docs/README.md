@@ -22,12 +22,6 @@ extensions:
     elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
 ```
 
-We're using `ClientBuilder` class to build and setup the `Client`. ClientBuilder internally uses `Monolog`, which you'll need to install as well.
-
-```bash
-composer require monolog/monolog
-```
-
 ## Configuration
 
 ```yaml
