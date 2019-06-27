@@ -1,8 +1,6 @@
-# Elasticsearch
+# Contributte Elasticsearch
 
-Tiny integration of **[elasticsearch-php](https://github.com/elastic/elasticsearch-php)** into Nette framework.
-
------
+Tiny integration of [elasticsearch-php](https://github.com/elastic/elasticsearch-php) into [Nette framework](https://nette.org).
 
 [![Build Status](https://img.shields.io/travis/contributte/elasticsearch.svg?style=flat-square)](https://travis-ci.org/contributte/elasticsearch)
 [![Code coverage](https://img.shields.io/coveralls/contributte/elasticsearch.svg?style=flat-square)](https://coveralls.io/r/contributte/elasticsearch)
@@ -10,28 +8,24 @@ Tiny integration of **[elasticsearch-php](https://github.com/elastic/elasticsear
 [![Downloads this Month](https://img.shields.io/packagist/dm/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
 [![Downloads total](https://img.shields.io/packagist/dt/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
 [![Latest stable](https://img.shields.io/packagist/v/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
+[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
 
 ## Discussion / Help
 
 [![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
 
-## Install
+## Documentation
 
-```bash
-composer require contributte/elasticsearch
-```
+- [Setup](.docs/README.md#setup)
+- [Configuration](.docs/README.md#configuration)
+
 ## Versions
 
-| State   | Version    | Branch   | PHP     |
-|---------|------------|----------|---------|
-| dev     | dev-master | `master` | `>=7.1` |
-| stable  | `^0.1`     | `master` | `>=7.1` |
-
-## Overview
-
-- [Usage - how to register](https://github.com/contributte/elasticsearch/blob/master/.docs/README.md#usage)
-- [Configuration - how to configure](https://github.com/contributte/elasticsearch/blob/master/.docs/README.md#configuration)
+| State       | Version | Branch   | Nette | PHP     |
+|-------------|---------|----------|-------|---------|
+| dev         | `^0.3`  | `master` | 3.0+  | `^7.2`  |
+| stable      | `^0.2`  | `master` | 3.0+  | `^7.2`  |
+| stable      | `^0.1`  | `master` | 2.4   | `>=7.1` |
 
 ## Maintainers
 
@@ -48,7 +42,5 @@ composer require contributte/elasticsearch
     </tr>
   </tbody>
 </table>
-
------
 
 Thank you for testing, reporting and contributing.
