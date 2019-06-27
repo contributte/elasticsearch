@@ -18,14 +18,17 @@ class ElasticsearchExtension extends CompilerExtension
 	public function getConfigSchema(): Schema
 	{
 		return Expect::structure([
-			'hosts' => Expect::anyOf(Expect::arrayOf('string'), Expect::structure([
-				'host' => Expect::string()->required(),
-				'port' => Expect::int(),
-				'schema' => Expect::string(),
-				'path' => Expect::string(),
-				'user' => Expect::string(),
-				'pass' => Expect::string(),
-			])),
+			'hosts' => Expect::arrayOf(Expect::anyOf(
+				Expect::string(),
+				Expect::structure([
+					'host' => Expect::string()->required(),
+					'port' => Expect::int(),
+					'schema' => Expect::string(),
+					'path' => Expect::string(),
+					'user' => Expect::string(),
+					'pass' => Expect::string(),
+				])->castTo('array')
+			)),
 			'retries' => Expect::int(),
 		]);
 	}
