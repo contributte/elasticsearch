@@ -38,7 +38,7 @@ elasticsearch:
         -
             host: 'localhost'
             port: 9200
-            scheme: 'https'
+            schema: 'https'
             user: 'foo'
             pass: 'bar'
 ```
