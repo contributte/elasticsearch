@@ -28,8 +28,8 @@ class ElasticsearchExtension extends CompilerExtension
 					'user' => Expect::string(),
 					'pass' => Expect::string(),
 				])->castTo('array')
-			)),
-			'retries' => Expect::int(),
+			))->required()->min(1),
+			'retries' => Expect::int(1),
 		]);
 	}
 
@@ -38,14 +38,10 @@ class ElasticsearchExtension extends CompilerExtension
 		$config = $this->config;
 		$builder = $this->getContainerBuilder();
 
-		$builder->addDefinition($this->prefix('clientBuilder'))
-			->setType(ClientBuilder::class)
-			->setFactory([ClientBuilder::class, 'create'])
-			->setArguments($config->hosts);
-
 		$builder->addDefinition($this->prefix('client'))
 			->setType(Client::class)
-			->setFactory(['@' . $this->prefix('clientBuilder'), 'build']);
+			->setFactory([ClientBuilder::class, 'fromConfig'])
+			->setArguments([(array) $config]);
 	}
 
 }
