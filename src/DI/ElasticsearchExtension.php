@@ -23,7 +23,7 @@ class ElasticsearchExtension extends CompilerExtension
 				Expect::structure([
 					'host' => Expect::string()->required(),
 					'port' => Expect::int(),
-					'schema' => Expect::string(),
+					'scheme' => Expect::string(),
 					'path' => Expect::string(),
 					'user' => Expect::string(),
 					'pass' => Expect::string(),
