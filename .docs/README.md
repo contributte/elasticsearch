@@ -17,30 +17,30 @@ composer require contributte/elasticsearch
 
 Register extension.
 
-```yaml
+```neon
 extensions:
-    elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
+	elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
 ```
 
 ## Configuration
 
-```yaml
+```neon
 elasticsearch:
-    hosts:
-      - 'localhost'
+	hosts:
+		- 'localhost'
 ```
 
 ### Advanced configuration
 
-```yaml
+```neon
 elasticsearch:
-    hosts:
-        -
-            host: 'localhost'
-            port: 9200
-            scheme: 'https'
-            user: 'foo'
-            pass: 'bar'
+	hosts:
+		-
+			host: 'localhost'
+			port: 9200
+			scheme: 'https'
+			user: 'foo'
+			pass: 'bar'
 ```
 
 **NOTE:** The `host` is required, others are recommended, but not necessary.
