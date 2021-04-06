@@ -1,47 +1,53 @@
 {
-    "name": "contributte/elasticsearch",
-    "description": "Tiny Elasticsearch integration into Nette Framework",
-    "keywords": ["contributte", "nette", "elasticsearch", "search", "elastic", "es"],
-    "type": "library",
-    "license": "MIT",
-    "homepage": "https://github.com/contributte/elasticsearch",
-    "authors": [
-        {
-            "name": "Vojtěch Mareš"
-        }
-    ],
-    "require": {
-        "php": ">=7.2",
-        "elasticsearch/elasticsearch": "^6.5.0|^7.0.0",
-        "nette/di": "~3.0.0"
-    },
-    "require-dev": {
-        "ninjify/nunjuck": "^0.2.0",
-        "ninjify/qa": "^0.9.0",
-        "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan-deprecation-rules": "^0.11",
-        "phpstan/phpstan-nette": "^0.11",
-        "phpstan/phpstan-shim": "^0.11",
-        "phpstan/phpstan-strict-rules": "^0.11"
-    },
-    "autoload": {
-        "psr-4": {
-            "Contributte\\Elasticsearch\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\Cases\\": "tests/cases"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-      "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.4.x-dev"
-        }
+  "name": "contributte/elasticsearch",
+  "description": "Tiny Elasticsearch integration into Nette Framework",
+  "keywords": [
+    "contributte",
+    "nette",
+    "elasticsearch",
+    "search",
+    "elastic",
+    "es"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/contributte/elasticsearch",
+  "authors": [
+    {
+      "name": "Vojtěch Mareš"
     }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "elasticsearch/elasticsearch": "^6.5.0|^7.0.0",
+    "nette/di": "~3.0.0"
+  },
+  "require-dev": {
+    "ninjify/nunjuck": "^0.3.0",
+    "ninjify/qa": "^0.12.0",
+    "phpstan/phpstan": "^0.12",
+    "phpstan/phpstan-deprecation-rules": "^0.12",
+    "phpstan/phpstan-nette": "^0.12",
+    "phpstan/phpstan-strict-rules": "^0.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Contributte\\Elasticsearch\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\Cases\\": "tests/cases"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.4.x-dev"
+    }
+  }
 }
