@@ -1,23 +1,34 @@
-# Contributte Elasticsearch
+![](https://heatbadger.now.sh/github/readme/contributte/elasticsearch/)
 
-Tiny integration of [elasticsearch-php](https://github.com/elastic/elasticsearch-php) into [Nette framework](https://nette.org).
+<p align=center>
+  <a href="https://github.com/contributte/elasticsearch/actions"><img src="https://badgen.net/github/checks/contributte/elasticsearch/master"></a>
+  <a href="https://coveralls.io/r/contributte/elasticsearch"><img src="https://badgen.net/coveralls/c/github/contributte/elasticsearch"></a>
+  <a href="https://packagist.org/packages/contributte/elasticsearch"><img src="https://badgen.net/packagist/dm/contributte/elasticsearch"></a>
+  <a href="https://packagist.org/packages/contributte/elasticsearch"><img src="https://badgen.net/packagist/v/contributte/elasticsearch"></a>
+</p>
+<p align=center>
+  <a href="https://packagist.org/packages/contributte/elasticsearch"><img src="https://badgen.net/packagist/php/contributte/elasticsearch"></a>
+  <a href="https://github.com/contributte/elasticsearch"><img src="https://badgen.net/github/license/contributte/elasticsearch"></a>
+  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
+  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
+  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
+</p>
 
-[![Build Status](https://img.shields.io/travis/contributte/elasticsearch.svg?style=flat-square)](https://travis-ci.org/contributte/elasticsearch)
-[![Code coverage](https://img.shields.io/coveralls/contributte/elasticsearch.svg?style=flat-square)](https://coveralls.io/r/contributte/elasticsearch)
-[![Licence](https://img.shields.io/packagist/l/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-[![Downloads this Month](https://img.shields.io/packagist/dm/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-[![Downloads total](https://img.shields.io/packagist/dt/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-[![Latest stable](https://img.shields.io/packagist/v/contributte/elasticsearch.svg?style=flat-square)](https://packagist.org/packages/contributte/elasticsearch)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+<p align=center>
+Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
+</p>
 
-## Discussion / Help
+## Usage
 
-[![Join the chat](https://img.shields.io/gitter/room/contributte/contributte.svg?style=flat-square)](http://bit.ly/ctteg)
+To install the latest version of `contributte/elasticsearch` use [Composer](https://getcomposer.org).
+
+```bash
+composer require contributte/elasticsearch
+```
 
 ## Documentation
 
-- [Setup](.docs/README.md#setup)
-- [Configuration](.docs/README.md#configuration)
+For details on how to use this package, check out our [documentation](.docs).
 
 ## Versions
 
@@ -27,20 +38,17 @@ Tiny integration of [elasticsearch-php](https://github.com/elastic/elasticsearch
 | stable      | `^0.3`  | `master` | 3.0+  | `^7.2`  |
 | stable      | `^0.1`  | `master` | 2.4   | `>=7.1` |
 
-## Maintainers
+## Development
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/vojtamares">
-            <img width="150" height="150" src="https://avatars2.githubusercontent.com/u/7180610?v=3&s=150">
-        </a>
-        </br>
-        <a href="https://github.com/vojtamares">Vojta Mareš</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+See [how to contribute](https://contributte.org/contributing.html) to this package.
 
-Thank you for testing, reporting and contributing.
+This package is currently maintaining by these authors.
+
+<a href="https://github.com/vojtamares">
+  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/7180610?v=3&s=80">
+</a>
+
+-----
+
+Consider to [support](https://contributte.org/partners.html) **contributte** development team.
+Also thank you for using this package.

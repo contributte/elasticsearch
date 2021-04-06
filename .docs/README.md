@@ -1,4 +1,4 @@
-# Contributte Elasticsearch
+# Contributte / Elasticsearch
 
 Find out more about [elasticsearch-php](https://github.com/elastic/elasticsearch-php) and also about [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html)
 
