@@ -1,4 +1,4 @@
-# Contributte Elasticsearch
+# Contributte / Elasticsearch
 
 Find out more about [elasticsearch-php](https://github.com/elastic/elasticsearch-php) and also about [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html)
 
@@ -17,30 +17,30 @@ composer require contributte/elasticsearch
 
 Register extension.
 
-```yaml
+```neon
 extensions:
-    elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
+	elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
 ```
 
 ## Configuration
 
-```yaml
+```neon
 elasticsearch:
-    hosts:
-      - 'localhost'
+	hosts:
+		- 'localhost'
 ```
 
 ### Advanced configuration
 
-```yaml
+```neon
 elasticsearch:
-    hosts:
-        -
-            host: 'localhost'
-            port: 9200
-            scheme: 'https'
-            user: 'foo'
-            pass: 'bar'
+	hosts:
+		-
+			host: 'localhost'
+			port: 9200
+			scheme: 'https'
+			user: 'foo'
+			pass: 'bar'
 ```
 
 **NOTE:** The `host` is required, others are recommended, but not necessary.
