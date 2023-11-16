@@ -30,17 +30,3 @@ elasticsearch:
 		- 'localhost'
 ```
 
-### Advanced configuration
-
-```neon
-elasticsearch:
-	hosts:
-		-
-			host: 'localhost'
-			port: 9200
-			scheme: 'https'
-			user: 'foo'
-			pass: 'bar'
-```
-
-**NOTE:** The `host` is required, others are recommended, but not necessary.
