@@ -73,3 +73,23 @@ test(function (): void {
 	Assert::type(Container::class, $container);
 	Assert::type(Client::class, $container->getService('elasticsearch.client'));
 });
+
+
+test(function (): void {
+	$loader = new ContainerLoader(TEMP_DIR, true);
+	$class = $loader->load(function (Compiler $compiler): void {
+		$compiler->addExtension('elasticsearch', new ElasticsearchExtension());
+		$compiler->loadConfig(FileMock::create('
+			elasticsearch:
+					hosts:
+					    - localhost
+					apiKey: null
+		', 'neon'));
+	}, '1d');
+
+	/** @var Container $container */
+	$container = new $class();
+
+	Assert::type(Container::class, $container);
+	Assert::type(Client::class, $container->getService('elasticsearch.client'));
+});

@@ -21,8 +21,8 @@ class ElasticsearchExtension extends CompilerExtension
 			'hosts'           => Expect::arrayOf(Expect::string())->required()->min(1),
 			'retries'         => Expect::int(1),
 			'sslVerification' => Expect::bool(),
-			'apiKey'          => Expect::arrayOf(Expect::string())->min(1)->max(2)->nullable(),
-			'basicAuthentication' => Expect::arrayOf(Expect::string())->min(2)->max(2)->nullable(),
+			'apiKey'          => Expect::anyOf(Expect::arrayOf(Expect::string())->min(1)->max(2), null),
+			'basicAuthentication' => Expect::anyOf(Expect::arrayOf(Expect::string())->min(2)->max(2), null),
 		]);
 	}
 
