@@ -20,7 +20,7 @@ class ElasticsearchExtension extends CompilerExtension
 		return Expect::structure([
 			'hosts'           => Expect::arrayOf(Expect::string())->required()->min(1),
 			'retries'         => Expect::int(1),
-			'sslVerification' => Expect::bool(),
+			'sslVerification' => Expect::bool(true),
 			'apiKey'          => Expect::anyOf(Expect::arrayOf(Expect::string())->min(1)->max(2), null),
 			'basicAuthentication' => Expect::anyOf(Expect::arrayOf(Expect::string())->min(2)->max(2), null),
 		]);
