@@ -34,9 +34,8 @@ For details on how to use this package, check out our [documentation](.docs).
 
 | State       | Version | Branch   | Nette | PHP     |
 |-------------|---------|----------|-------|---------|
-| dev         | `^0.4`  | `master` | 3.0+  | `^7.2`  |
-| stable      | `^0.3`  | `master` | 3.0+  | `^7.2`  |
-| stable      | `^0.1`  | `master` | 2.4   | `>=7.1` |
+| dev         | `^0.5`  | `master` | 3.2+  | `>=8.1` |
+| stable      | `^0.4`  | `master` | 3.20+ | `>=8.1` |
 
 ## Development
 
@@ -44,6 +43,9 @@ See [how to contribute](https://contributte.org/contributing.html) to this packa
 
 This package is currently maintaining by these authors.
 
+<a href="https://github.com/f3l1x">
+    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
+</a>
 <a href="https://github.com/vojtamares">
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/7180610?v=3&s=80">
 </a>
