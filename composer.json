@@ -28,6 +28,9 @@
     "contributte/tester": "^0.4",
     "contributte/phpstan": "^0.1"
   },
+  "conflict": {
+    "psr/http-message": "<2.0"
+  },
   "autoload": {
     "psr-4": {
       "Contributte\\Elasticsearch\\": "src/"
