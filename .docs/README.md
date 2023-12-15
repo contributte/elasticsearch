@@ -26,7 +26,9 @@ extensions:
 
 ```neon
 elasticsearch:
-	hosts: [localhost:9200]
+	hosts: [localhost]
+	sslVerification: false
+	apiKey: [testapikey]
 ```
 
 **NOTE:** The `host` is required, others are recommended, but not necessary.

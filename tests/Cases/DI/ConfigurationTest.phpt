@@ -17,7 +17,45 @@ Toolkit::test(function (): void {
 			$compiler->addExtension('elasticsearch', new ElasticsearchExtension());
 			$compiler->addConfig(Neonkit::load(<<<'NEON'
 			elasticsearch:
-					hosts: [192.168.1.100:9999]
+					hosts:
+						- localhost
+						- 192.168.1.100:9200
+			NEON
+			));
+		})->build();
+
+	Assert::type(Container::class, $container);
+	Assert::type(Client::class, $container->getService('elasticsearch.client'));
+});
+
+Toolkit::test(function (): void {
+	$container = ContainerBuilder::of()
+		->withCompiler(function (Compiler $compiler): void {
+			$compiler->addExtension('elasticsearch', new ElasticsearchExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
+			elasticsearch:
+					hosts:
+						- localhost
+					sslVerification: false
+					apiKey:
+						- testapikey
+			NEON
+			));
+		})->build();
+
+	Assert::type(Container::class, $container);
+	Assert::type(Client::class, $container->getService('elasticsearch.client'));
+});
+
+Toolkit::test(function (): void {
+	$container = ContainerBuilder::of()
+		->withCompiler(function (Compiler $compiler): void {
+			$compiler->addExtension('elasticsearch', new ElasticsearchExtension());
+			$compiler->addConfig(Neonkit::load(<<<'NEON'
+			elasticsearch:
+					hosts:
+						- localhost
+					apiKey: null
 			NEON
 			));
 		})->build();
