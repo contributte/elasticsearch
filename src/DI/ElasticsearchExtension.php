@@ -29,7 +29,7 @@ class ElasticsearchExtension extends CompilerExtension
 	public function beforeCompile(): void
 	{
 		$config = $this->getConfig();
-		$config = array_filter((array) $config);
+		$config = array_filter((array) $config, fn ($value) => $value !== null);
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('client'))
