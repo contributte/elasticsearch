@@ -1,0 +1,29 @@
+<?php declare(strict_types = 1);
+
+namespace Contributte\Elasticsearch\Tracy;
+
+/** @var int $queriesNum */
+/** @var float $totalTime */
+?>
+<span title="Elasticsearch">
+	<span class="tracy-label">
+	<?php if ($queriesNum <= 0): ?>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="height: 16px; width: auto; display: inline; opacity: 0.5;">
+			<path fill="#343741" d="M38.1 36.2H9.6c.5 6.5 2.9 12.5 6.7 17.3h16.6c5.9 0 10.7-4.8 10.7-10.7V42c0-3.2-2.6-5.8-5.5-5.8z"/>
+			<path fill="#00BFB3" d="M9.6 27.8h28.5c3.1 0 5.6-2.6 5.6-5.6v-.9c0-5.9-4.8-10.7-10.7-10.7H16.3C12.5 15.3 10.1 21.3 9.6 27.8z"/>
+			<path fill="#FEC514" d="M0 32c0 3 .4 5.9 1.2 8.7h6.3c2.8 0 5-2.2 5-5v-7.4c0-2.8-2.2-5-5-5H1.2C.4 26.1 0 29 0 32z"/>
+			<path fill="#F04E98" d="M64 32c0-15.5-11-28.4-25.6-31.4C53.3 6.7 64 17.9 64 32s-10.7 25.3-25.6 31.4C53 60.4 64 47.5 64 32z"/>
+		</svg>
+	<?php else: ?>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="height: 16px; width: auto; display: inline;">
+			<path fill="#343741" d="M38.1 36.2H9.6c.5 6.5 2.9 12.5 6.7 17.3h16.6c5.9 0 10.7-4.8 10.7-10.7V42c0-3.2-2.6-5.8-5.5-5.8z"/>
+			<path fill="#00BFB3" d="M9.6 27.8h28.5c3.1 0 5.6-2.6 5.6-5.6v-.9c0-5.9-4.8-10.7-10.7-10.7H16.3C12.5 15.3 10.1 21.3 9.6 27.8z"/>
+			<path fill="#FEC514" d="M0 32c0 3 .4 5.9 1.2 8.7h6.3c2.8 0 5-2.2 5-5v-7.4c0-2.8-2.2-5-5-5H1.2C.4 26.1 0 29 0 32z"/>
+			<path fill="#F04E98" d="M64 32c0-15.5-11-28.4-25.6-31.4C53.3 6.7 64 17.9 64 32s-10.7 25.3-25.6 31.4C53 60.4 64 47.5 64 32z"/>
+		</svg>
+	<?php endif; ?>
+	&nbsp;
+	<?= ($queriesNum > 0 ? $queriesNum . ' queries' : '') ?>
+	<?= ($totalTime > 0 ? ' / ' . number_format($totalTime * 1000, 1, '.', ' ') . ' ms' : '') ?>
+	</span>
+</span>
