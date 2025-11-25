@@ -1,0 +1,136 @@
+<?php declare(strict_types = 1);
+
+namespace Contributte\Elasticsearch\Tracy;
+
+use Tracy\Dumper;
+use Tracy\Helpers;
+
+/** @var int $queriesNum */
+/** @var float $totalTime */
+/** @var array<string, mixed> $config */
+/** @var array<int, array{method: string, endpoint: string, params: array<string, mixed>, body: mixed, response: mixed, statusCode: int, duration: float, backtrace: array<int, array{file?: string, line?: int, class?: string, function?: string}>}> $queries */
+?>
+
+<style>
+	#tracy-debug .elasticsearch-panel { max-width: 900px; }
+	#tracy-debug .elasticsearch-panel h2 { font-size: 23px; color: #FEC514; }
+	#tracy-debug .elasticsearch-panel table { width: 100%; border-collapse: collapse; }
+	#tracy-debug .elasticsearch-panel th,
+	#tracy-debug .elasticsearch-panel td { text-align: left; padding: 4px 8px; }
+	#tracy-debug .elasticsearch-panel th { background: #343741; color: #FEC514; }
+	#tracy-debug .elasticsearch-panel tr:nth-child(even) { background: #f5f5f5; }
+	#tracy-debug .elasticsearch-panel .status-ok { color: #00BFB3; font-weight: bold; }
+	#tracy-debug .elasticsearch-panel .status-error { color: #F04E98; font-weight: bold; }
+	#tracy-debug .elasticsearch-panel .method { font-weight: bold; color: #343741; }
+	#tracy-debug .elasticsearch-panel .method-get { color: #00BFB3; }
+	#tracy-debug .elasticsearch-panel .method-post { color: #FEC514; }
+	#tracy-debug .elasticsearch-panel .method-put { color: #1BA9F5; }
+	#tracy-debug .elasticsearch-panel .method-delete { color: #F04E98; }
+	#tracy-debug .elasticsearch-panel .endpoint { font-family: monospace; word-break: break-all; }
+	#tracy-debug .elasticsearch-panel .duration { text-align: right; white-space: nowrap; }
+	#tracy-debug .elasticsearch-panel pre { margin: 0; white-space: pre-wrap; word-break: break-all; background: #f8f8f8; padding: 4px; border-radius: 3px; max-height: 200px; overflow: auto; }
+	#tracy-debug .elasticsearch-panel .tracy-toggle { cursor: pointer; color: #125EAE; }
+	#tracy-debug .elasticsearch-panel .tracy-toggle:hover { color: #343741; }
+	#tracy-debug .elasticsearch-panel .backtrace { font-size: 11px; color: #666; margin-top: 4px; }
+	#tracy-debug .elasticsearch-panel .config-table td:first-child { font-weight: bold; width: 150px; }
+</style>
+
+<div class="elasticsearch-panel">
+	<h2>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" style="height: 24px; width: auto; display: inline; vertical-align: middle;">
+			<path fill="#343741" d="M38.1 36.2H9.6c.5 6.5 2.9 12.5 6.7 17.3h16.6c5.9 0 10.7-4.8 10.7-10.7V42c0-3.2-2.6-5.8-5.5-5.8z"/>
+			<path fill="#00BFB3" d="M9.6 27.8h28.5c3.1 0 5.6-2.6 5.6-5.6v-.9c0-5.9-4.8-10.7-10.7-10.7H16.3C12.5 15.3 10.1 21.3 9.6 27.8z"/>
+			<path fill="#FEC514" d="M0 32c0 3 .4 5.9 1.2 8.7h6.3c2.8 0 5-2.2 5-5v-7.4c0-2.8-2.2-5-5-5H1.2C.4 26.1 0 29 0 32z"/>
+			<path fill="#F04E98" d="M64 32c0-15.5-11-28.4-25.6-31.4C53.3 6.7 64 17.9 64 32s-10.7 25.3-25.6 31.4C53 60.4 64 47.5 64 32z"/>
+		</svg>
+		Elasticsearch
+	</h2>
+
+	<?php if ($queriesNum === 0): ?>
+		<p><em>No queries executed.</em></p>
+	<?php else: ?>
+		<p>
+			<strong><?= $queriesNum ?></strong> <?= $queriesNum === 1 ? 'query' : 'queries' ?>
+			executed in <strong><?= number_format($totalTime * 1000, 2) ?> ms</strong>
+		</p>
+	<?php endif; ?>
+
+	<?php if (!empty($config)): ?>
+		<h3 class="tracy-toggle tracy-collapsed" data-tracy-ref="^div .elasticsearch-config">Configuration</h3>
+		<div class="tracy-collapsed elasticsearch-config">
+			<table class="config-table">
+				<?php foreach ($config as $key => $value): ?>
+					<tr>
+						<td><?= Helpers::escapeHtml($key) ?></td>
+						<td><?= is_array($value) ? Helpers::escapeHtml(implode(', ', $value)) : Helpers::escapeHtml((string) $value) ?></td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+		</div>
+	<?php endif; ?>
+
+	<?php if ($queriesNum > 0): ?>
+		<table>
+			<thead>
+				<tr>
+					<th style="width: 60px;">Method</th>
+					<th>Endpoint</th>
+					<th style="width: 60px;">Status</th>
+					<th style="width: 80px;" class="duration">Duration</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($queries as $i => $query): ?>
+					<tr>
+						<td>
+							<span class="method method-<?= strtolower($query['method']) ?>"><?= Helpers::escapeHtml($query['method']) ?></span>
+						</td>
+						<td>
+							<span class="endpoint"><?= Helpers::escapeHtml($query['endpoint']) ?></span>
+							<?php if (!empty($query['params'])): ?>
+								<br><small>?<?= Helpers::escapeHtml(http_build_query($query['params'])) ?></small>
+							<?php endif; ?>
+
+							<?php if ($query['body'] !== null): ?>
+								<div class="tracy-toggle tracy-collapsed" data-tracy-ref="^tr .query-body-<?= $i ?>">Request Body</div>
+								<div class="tracy-collapsed query-body-<?= $i ?>">
+									<pre><?= Helpers::escapeHtml(json_encode($query['body'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '') ?></pre>
+								</div>
+							<?php endif; ?>
+
+							<?php if ($query['response'] !== null): ?>
+								<div class="tracy-toggle tracy-collapsed" data-tracy-ref="^tr .query-response-<?= $i ?>">Response</div>
+								<div class="tracy-collapsed query-response-<?= $i ?>">
+									<pre><?= Helpers::escapeHtml(json_encode($query['response'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '') ?></pre>
+								</div>
+							<?php endif; ?>
+
+							<?php if (!empty($query['backtrace'])): ?>
+								<div class="tracy-toggle tracy-collapsed" data-tracy-ref="^tr .query-trace-<?= $i ?>">Backtrace</div>
+								<div class="tracy-collapsed query-trace-<?= $i ?> backtrace">
+									<?php foreach ($query['backtrace'] as $trace): ?>
+										<?php if (isset($trace['file'])): ?>
+											<?= Helpers::escapeHtml($trace['file']) ?>:<?= $trace['line'] ?? 0 ?>
+											<?php if (isset($trace['class']) || isset($trace['function'])): ?>
+												<br>&nbsp;&nbsp;&nbsp;&nbsp;<?= isset($trace['class']) ? Helpers::escapeHtml($trace['class']) . '::' : '' ?><?= Helpers::escapeHtml($trace['function'] ?? '') ?>()
+											<?php endif; ?>
+											<br>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+						</td>
+						<td>
+							<span class="<?= $query['statusCode'] >= 200 && $query['statusCode'] < 300 ? 'status-ok' : 'status-error' ?>">
+								<?= $query['statusCode'] ?>
+							</span>
+						</td>
+						<td class="duration">
+							<?= number_format($query['duration'] * 1000, 2) ?> ms
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	<?php endif; ?>
+</div>
