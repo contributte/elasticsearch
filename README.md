@@ -18,17 +18,7 @@
 Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
 </p>
 
-## Usage
-
-To install the latest version of `contributte/elasticsearch` use [Composer](https://getcomposer.org).
-
-```bash
-composer require contributte/elasticsearch
-```
-
-## Documentation
-
-For details on how to use this package, check out our [documentation](.docs).
+Nette integration for [elasticsearch-php](https://github.com/elastic/elasticsearch-php) and [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/client/php-api/5.0/index.html).
 
 ## Versions
 
@@ -36,6 +26,32 @@ For details on how to use this package, check out our [documentation](.docs).
 |-------------|---------|----------|-------|---------|
 | dev         | `^0.6`  | `master` | 3.2+  | `>=8.1` |
 | stable      | `^0.5`  | `master` | 3.2+  | `>=8.1` |
+
+## Installation
+
+To install the latest version of `contributte/elasticsearch` use [Composer](https://getcomposer.org).
+
+```bash
+composer require contributte/elasticsearch
+```
+
+Register extension.
+
+```neon
+extensions:
+	elasticsearch: Contributte\Elasticsearch\DI\ElasticsearchExtension
+```
+
+## Configuration
+
+```neon
+elasticsearch:
+	hosts: [localhost]
+	sslVerification: false
+	apiKey: [testapikey]
+```
+
+**NOTE:** The `hosts` option is required, others are recommended, but not necessary.
 
 ## Development
 
